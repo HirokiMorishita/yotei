@@ -11,8 +11,11 @@ JIRAチケットとGoogleカレンダーの予定から今日の予定ファイ�
 - python3
 ### JIRA API の使用準備
 JIRAチケット情報の取得にはJIRAのAPIトークンと取得対象のスプリントボードIDを取得する必要があります
+
 APIトークンは[JIRAのドキュメント](https://support.atlassian.com/ja/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/)を参考にしてください
+
 スプリントボードのIDはスプリントボードを開いた際のURLの末尾の数字です(/boards/${id})
+
 それぞれ確認出来たら./secrets/secret.json に以下のようなjsonを作成してください
 ```bash
 {
@@ -31,6 +34,7 @@ APIトークンは[JIRAのドキュメント](https://support.atlassian.com/ja/a
 
 ### google projectの準備
 googleカレンダーの予定を取得するにはgoogleのOauthクライアントの設定が必要です
+
 [Googleのドキュメント](https://developers.google.com/calendar/api/quickstart/python?hl=ja)を参考に以下の手順を行ってください
 1. google cloudプロジェクトの作成
     - [Googleのドキュメント](https://developers.google.com/workspace/guides/create-project?hl=ja)を参考にプロジェクトを作成してください。

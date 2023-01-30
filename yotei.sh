@@ -28,13 +28,13 @@ function main() {
       outputTicketStatus $useMarkup $projectJIRABoardId >> $nippouFile
     fi
     if [ -f ./secrets/google_token.json ]; then
-      outputEvent $useMarkup $projectCalendarEmail $(date -d "${lastDay}" '+%Y-%m-%dT00:00:00%:z') $(date '+%Y-%m-%dT00:00:00%:z') "" >> $nippouFile
+      outputEvent $useMarkup $projectCalendarEmail $(date -d "${lastDay}" '+%Y-%m-%dT00:00:00%:z') $(date '+%Y-%m-%dT23:59:59%:z') "" >> $nippouFile
     fi
     echo "" >> $nippouFile
   done
   if [ -f ./secrets/google_token.json ]; then
     echo "その他" >> $nippouFile
-    outputEvent $useMarkup $emailAddress $(date -d "${lastDay}" '+%Y-%m-%dT00:00:00%:z') $(date '+%Y-%m-%dT00:00:00%:z') "$(echo $secretJSON | jq -c '[.projects[].calendarEmail]')" >> $nippouFile
+    outputEvent $useMarkup $emailAddress $(date -d "${lastDay}" '+%Y-%m-%dT00:00:00%:z') $(date '+%Y-%m-%dT23:59:59%:z') "$(echo $secretJSON | jq -c '[.projects[].calendarEmail]')" >> $nippouFile
   fi
 }
 

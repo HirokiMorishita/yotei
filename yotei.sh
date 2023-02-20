@@ -99,8 +99,8 @@ function outputEvent() {
     end |
     {
       flagStr: .flagStr,
-      markedStr: ("["+ .title +"]" +"("+ .meet +")" + " " + (.start | strptime("%FT%X+09:00")|strftime("%X")) + "-"+(.end | strptime("%FT%X+09:00")|strftime("%X"))),
-      normalStr: (.title + " " + (.start | strptime("%FT%X+09:00")|strftime("%X")) + "-"+(.end | strptime("%FT%X+09:00")|strftime("%X")))
+      markedStr: ("["+ .title +"]" +"("+ .meet +")" + " " + (.start | strptime("%FT%X+09:00")|strftime("%H:%M")) + "-"+(.end | strptime("%FT%X+09:00")|strftime("%H:%M"))),
+      normalStr: (.title + " " + (.start | strptime("%FT%X+09:00")|strftime("%H:%M")) + "-"+(.end | strptime("%FT%X+09:00")|strftime("%H:%M")))
     }' \
   | jq -r "if ${useMarkup} then
       .flagStr + \" \" + .markedStr
